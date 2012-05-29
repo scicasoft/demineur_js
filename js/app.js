@@ -17,6 +17,9 @@ $(function(){
 	var ecouteur = function() {
 		$(".demineur_case").click(function(){
 			if (fini == true) return false;
+			var node = $(this);
+			if (node.hasClass('not_piege') || node.hasClass('drapeau'))
+				return false;
 			var l = parseInt($(this).attr('l'));
 			var c = parseInt($(this).attr('c'));
 
@@ -32,9 +35,45 @@ $(function(){
 			} else {
 				$(this).addClass('not_piege');
 				var n_mines = nombre_pieges(voisins(l, c));
-				$(this).html(n_mines);
+				if (n_mines != 0) {
+					$(this).html(n_mines);
+				} else {
+					marqueur_zero(voisins(l, c));
+				}
 			}
 		});
+
+		$(".demineur_case").bind("contextmenu",function(e){
+			if (fini == true) return false;
+			var node = $(this);
+			if (node.hasClass('drapeau'))
+				node.removeClass('drapeau');
+			else {
+				if (!node.hasClass('not_piege'))
+					node.addClass('drapeau');
+			}
+			
+			return false;  
+		});
+	}
+
+	var marqueur_zero = function(tab) {
+		for (var i = 0; i<tab.length; i++) {
+			if ((typeof(tab[i]) != "undefined")) {
+				var node = $("#"+tab[i]);
+				var l = parseInt(node.attr('l'));
+				var c = parseInt(node.attr('c'));
+				var n_pieges = nombre_pieges(voisins(l, c));
+				if (!(node.hasClass('not_piege'))){
+					node.addClass('not_piege');
+					if (n_pieges != 0) {
+						node.html(n_pieges);
+					} else {
+						marqueur_zero(voisins(l, c));
+					}
+				}
+			}
+		}
 	}
 
 	var dessiner = function(n_ligne, n_colonne) {

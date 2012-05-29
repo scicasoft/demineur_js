@@ -36,3 +36,7 @@ body{
 .not_piege {
 	background-color: lightgreen;
 }
+
+.drapeau {
+	background: url(../img/drapeau.gif) center red no-repeat;
+}
