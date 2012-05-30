@@ -1,1 +1,1 @@
-développé par : HKairi, Diozza et scicasoft
+développé par : HKairi, dioza22 et scicasoft

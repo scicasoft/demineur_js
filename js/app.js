@@ -1,16 +1,30 @@
 $(function(){
 	var e = $("#demineur");
+	var timer = $('#demineur_time');
 	var lin = e.attr('ligne');
 	var col = e.attr('colonne');
-	var nb_piege = Math.ceil(lin*col*3/10);
+	var nb_piege = Math.ceil(lin*col*2/10);
 	var genere = false;
 	var fini = false;
+	var score = $('#demineur_score');
+	var marques = 0;
+	var message = $("#demineur_message");
+	var reste = parseInt(col)*parseInt(lin)-nb_piege;
+
+	setInterval(function(){
+		if (!fini)
+			timer.html(1+parseInt(timer.html()));
+	}, 1000);
 
 	$('#rejouer').click(function(){
 		genere = false;
 		fini = false;
+		marques=0;
 		dessiner(lin, col);
-		$(this).hide();
+		timer.html('0');
+		message.html('');
+		reste = parseInt(col)*parseInt(lin)-nb_piege;
+		//$(this).hide();
 		return false;
 	});
 
@@ -30,15 +44,23 @@ $(function(){
 
 			if ($(this).attr('piege') == 1) {
 				$('.demineur_case[piege="1"]').addClass('piege');
+				message.html('PERDU :-P');
 				fini = true;
 				$('#rejouer').show();
 			} else {
 				$(this).addClass('not_piege');
+				reste--;
 				var n_mines = nombre_pieges(voisins(l, c));
 				if (n_mines != 0) {
 					$(this).html(n_mines);
 				} else {
+					$(this).addClass('nulle');
 					marqueur_zero(voisins(l, c));
+				}
+				console.log(reste);
+				if (reste==0){
+					fini=true;
+					message.html('GAGNE :-D')
 				}
 			}
 		});
@@ -46,12 +68,18 @@ $(function(){
 		$(".demineur_case").bind("contextmenu",function(e){
 			if (fini == true) return false;
 			var node = $(this);
-			if (node.hasClass('drapeau'))
+			if (node.hasClass('drapeau')){
 				node.removeClass('drapeau');
-			else {
-				if (!node.hasClass('not_piege'))
-					node.addClass('drapeau');
+				marques--;
 			}
+			else {
+				if (!node.hasClass('not_piege')){
+					node.addClass('drapeau');
+					marques++;
+				}
+			}
+
+			score.html(marques+'/'+nb_piege);
 			
 			return false;  
 		});
@@ -66,9 +94,11 @@ $(function(){
 				var n_pieges = nombre_pieges(voisins(l, c));
 				if (!(node.hasClass('not_piege'))){
 					node.addClass('not_piege');
+					reste--;
 					if (n_pieges != 0) {
 						node.html(n_pieges);
 					} else {
+						node.addClass('nulle');
 						marqueur_zero(voisins(l, c));
 					}
 				}
@@ -86,6 +116,8 @@ $(function(){
 			contenu += "</div>";
 		}
 		e.html(contenu);
+
+		score.html(marques+'/'+nb_piege);
 
 		ecouteur();
 	}

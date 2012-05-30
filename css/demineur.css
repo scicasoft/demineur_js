@@ -40,3 +40,20 @@ body{
 .drapeau {
 	background: url(../img/drapeau.gif) center red no-repeat;
 }
+
+#demineur_infos {
+	width: 150px;
+	float: left;
+}
+
+#demineur_jeu {
+	float: left;
+}
+
+#demineur_contenu {
+	float:left;
+}
+
+.nulle {
+	background-color:#ccc;
+}
