@@ -10,27 +10,49 @@ $(function(){
 	var marques = 0;
 	var message = $("#demineur_message");
 	var reste = parseInt(col)*parseInt(lin)-nb_piege;
-
-	setInterval(function(){
-		if (!fini)
+	var loose = false; // Si le joueur a perdu
+	var start = false; // variable ajoutée pour verifier si le jeu a commencé 
+	var timerInterval;
+	function startTimer(){
+		timerInterval = setInterval(function(){
+		if (!fini || start)
 			timer.html(1+parseInt(timer.html()));
 	}, 1000);
+	}
+
+	function stopTimer()
+	{
+		clearInterval(timerInterval);
+	}
+	
 
 	$('#rejouer').click(function(){
 		genere = false;
 		fini = false;
+		start = false;
 		marques=0;
 		dessiner(lin, col);
 		timer.html('0');
 		message.html('');
 		reste = parseInt(col)*parseInt(lin)-nb_piege;
 		//$(this).hide();
+		stopTimer();
 		return false;
 	});
 
 	var ecouteur = function() {
 		$(".demineur_case").click(function(){
 			if (fini == true) return false;
+
+			if($('#demineur .demineur_case').each(function(){
+
+				if(!$(this).hasClass('drapeau not_piege nulle') && !start)
+				{
+					start = true;
+					startTimer();
+				}
+
+			}));
 			var node = $(this);
 			if (node.hasClass('not_piege') || node.hasClass('drapeau'))
 				return false;
@@ -46,6 +68,8 @@ $(function(){
 				$('.demineur_case[piege="1"]').addClass('piege');
 				message.html('PERDU :-P');
 				fini = true;
+				start = false;
+
 				$('#rejouer').show();
 			} else {
 				$(this).addClass('not_piege');
