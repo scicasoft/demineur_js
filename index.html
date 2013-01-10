@@ -1,23 +1,41 @@
+<!DOCTYPE html>
+
 <html>
-	<head>
-		<title>Demineur</title>
-		<link charset='utf-8' href='css/demineur.css' media='screen' rel='stylesheet' type='text/css' />
-	</head>
-	<body>
-		<h1>Demineur</h1>
-		<div div='demineur_jeu'>
-			<div id="demineur_infos">
-				<span id='demineur_time'>0</span> secondes<br>
-				<span id='demineur_score'></span><br>
-				<a href="#" id='rejouer'>rejouer</a><br /><br />
-				<span id='demineur_message'></span><br>
-			</div>
+<head>
+	<title>Demineur</title>
+	<meta charset="utf-8">
+	<link href='public/css/demineur.css.no' media='screen' rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" href="public/css/styles.css" type="text/css" media="screen">
+</head>
+<body>
+	
+
+	
+		<div id="game">
+			
+				<div id="game_stats">
+					<span class="timerzone">
+						<span class="entypo timer">&#128340;</span> 
+						<span id='demineur_time'>0</span>
+					</span>
+					
+					
+					<span id='scorezone'>
+						<span class="entypo mines">&#9873;</span>
+						<span id="demineur_score"></span>
+					</span>
+				</div>
+			
 			<div id='demineur_contenu'>
 				<div class='demineur' id='demineur' ligne='10' colonne='10'></div>
 			</div>
+			<a class="entypo" href="#" id='rejouer'>&#128260;</a>
+			
+			<div id="demineur_message"></div>
 		</div>
+	
 
-		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
-		<script type="text/javascript" src='js/app.js'></script>
-	</body>
+	<script type="text/javascript" src="public/js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src='public/js/app.js'></script>
+</body>
 </html>
