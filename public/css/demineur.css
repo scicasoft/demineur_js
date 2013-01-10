@@ -1,0 +1,60 @@
+body{
+	width:700px;
+	margin:auto;
+	border:1px solid silver;
+	margin-top:5px;
+	margin-bottom:5px;
+	padding: 10px;
+}
+
+/*
+#demineur, .demineur {
+	border:1px solid gray;
+	float:left;
+}
+*/
+.demineur_ligne {
+}
+
+.demineur_case {
+	border:1px solid #ccc;
+	margin:1px;
+	
+	
+	float:left;
+	text-align:center;
+}
+
+.demineur_case[piege='1'] {
+	/*background-color: red;*/
+}
+
+.piege {
+	/*background-color: red;*/
+	background-image: url('../img/bombe.png');
+}
+
+.not_piege {
+	background-color: 'lightgreen';
+}
+
+.drapeau {
+	background: url(../img/drapeau.gif) center red no-repeat;
+}
+
+#demineur_infos {
+	width: 150px;
+	float: left;
+}
+
+#demineur_jeu {
+	float: left;
+}
+
+#demineur_contenu {
+	
+}
+
+.nulle {
+	background-color:#ccc;
+}
