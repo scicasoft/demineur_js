@@ -78,6 +78,9 @@ $(function(){
 
 			if ($(this).attr('piege') == 1) {
 				$('.'+options.caseClass+'[piege="1"]').addClass('piege entypo').html('&#128261;').hide().fadeIn();
+				
+				$('.drapeau:not(.not_piege)').removeClass('drapeau').css('color', 'green');
+
 				message.html('Vous avez perdu !');
 				fini = true;
 				start = false;
