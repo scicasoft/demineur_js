@@ -6,9 +6,9 @@ div#game{padding:20px;background:rgba(0, 0, 0, 0.5);display:inline-block;-webkit
 #demineur{-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;-moz-background-clip:padding-box;-webkit-background-clip:padding-box;background-clip:padding-box;}
 .demineur{margin-top:5px;float:left;}
 .demineur_ligne .demineur_case{background:#000000;background:-webkit-gradient(linear, left bottom, left top, color-stop(0, #191919), color-stop(1, #232323));background:-ms-linear-gradient(bottom, #191919 0%, #232323 100%);background:-moz-linear-gradient(center bottom, #191919 0%, #232323 100%);background:-o-linear-gradient(#232323, #191919);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#232323', endColorstr='#191919', GradientType=0);float:left;-webkit-box-shadow:0 1px 2px #000000;-moz-box-shadow:0 1px 2px #000000;box-shadow:0 1px 2px #000000;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;-moz-background-clip:padding-box;-webkit-background-clip:padding-box;background-clip:padding-box;width:30px;height:30px;margin:1px;padding:5px;line-height:30px;cursor:pointer;font-size:2em;}
-.piege{color:red !important;font-size:4.5em !important;}
-.not_piege{background:rgba(0, 0, 0, 0.2) !important;}
-.nulle{-moz-opacity:0.4;-khtml-opacity:0.4;-webkit-opacity:0.4;opacity:0.4;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(opacity=40);filter:alpha(opacity=40);-moz-transition-duration:0.2;-webkit-transition-duration:0.2;-o-transition-duration:0.2;transition-duration:0.2;}
+.demineur_ligne .piege{color:red !important;font-size:4.5em !important;}
+.demineur_ligne .not_piege{background:rgba(0, 0, 0, 0.2) !important;}
+.demineur_ligne .nulle{-moz-opacity:0.4;-khtml-opacity:0.4;-webkit-opacity:0.4;opacity:0.4;-ms-filter:progid:DXImageTransform.Microsoft.Alpha(opacity=40);filter:alpha(opacity=40);-moz-transition-duration:0.2;-webkit-transition-duration:0.2;-o-transition-duration:0.2;transition-duration:0.2;}
 .entypo{color:white;font-size:4em;font-family:"entypo";}
 span.timerzone{float:left;}
 span.timerzone #demineur_time{display:inline-block;line-height:0px;font-size:2.6em;}

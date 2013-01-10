@@ -69,24 +69,24 @@ div#game
     
     > span
     {
-       display: inline-block;
-       padding-left:15px;
-       padding-right:15px;   
-       background: rgba(0,0,0,0.4);
-       line-height: 20px;
+     display: inline-block;
+     padding-left:15px;
+     padding-right:15px;   
+     background: rgba(0,0,0,0.4);
+     line-height: 20px;
 
-    .inner-shadow(0, 0px, 10px, 1); 
-       span
-       {
+     .inner-shadow(0, 0px, 10px, 1); 
+     span
+     {
         display: inline-block;  
         line-height:20px;
         padding:10px 10px 5px 0px;
-       }
+    }
 
-   }
+}
 
-   #scorezone
-   {  
+#scorezone
+{  
     float: right;
 
     #demineur_score
@@ -142,23 +142,27 @@ div#game
 
 }
 
-.piege
+.demineur_ligne
 {
+    .piege
+    {
 
-    color: red !important;
-    font-size: 4.5em !important;
-}  
+        color: red !important;
+        font-size: 4.5em !important;
+    }  
 
-.not_piege
-{
-    background: rgba(0,0,0,0.2) !important;
+    .not_piege
+    {
+        background: rgba(0,0,0,0.2) !important;
+    }
+    .nulle
+    {
+        .opacity(0.4);
+
+        .transition-duration(0.2);
+    }  
 }
-.nulle
-{
-    .opacity(0.4);
 
-    .transition-duration(0.2);
-}  
 
 .demineur
 {
