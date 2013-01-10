@@ -7,19 +7,20 @@ body{
 	padding: 10px;
 }
 
+/*
 #demineur, .demineur {
 	border:1px solid gray;
 	float:left;
 }
-
+*/
 .demineur_ligne {
 }
 
 .demineur_case {
 	border:1px solid #ccc;
 	margin:1px;
-	width:22px;
-	height:22px;
+	
+	
 	float:left;
 	text-align:center;
 }
@@ -30,11 +31,11 @@ body{
 
 .piege {
 	/*background-color: red;*/
-	background-image: url(../img/bombe.png);
+	background-image: url('../img/bombe.png');
 }
 
 .not_piege {
-	background-color: lightgreen;
+	background-color: 'lightgreen';
 }
 
 .drapeau {
@@ -51,7 +52,7 @@ body{
 }
 
 #demineur_contenu {
-	float:left;
+	
 }
 
 .nulle {
